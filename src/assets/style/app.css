@@ -1,2 +1,24 @@
 body {
   font-family: "helvetica"; }
+
+upload label {
+  background-color: green;
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  text-align: center;
+  color: white;
+  cursor: pointer; }
+  upload label input[type="file"] {
+    display: none;
+    position: absolute; }
+
+upload label::before {
+  line-height: 140px; }
+
+section#home upload {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -75px;
+  margin-left: -75px; }

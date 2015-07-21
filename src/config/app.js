@@ -8,4 +8,4 @@
  * @author Sam Verschueren       <sam.verschueren@gmail.com>
  * @since  21 Jul. 2015
  */
-var app = angular.module('selfiewall', ['app.routes', 'app.controllers']);
+var app = angular.module('selfiewall', ['app.routes', 'app.components', 'app.controllers']);

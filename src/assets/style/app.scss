@@ -14,4 +14,8 @@ $font: "helvetica";
 
 body {
 	font-family: $font;
+    //background: black;
 }
+
+@import "sections/components";
+@import "sections/home";

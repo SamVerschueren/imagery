@@ -1,0 +1,19 @@
+upload {
+    label {
+        background-color: green;
+        width: 150px;
+        height: 150px;
+        border-radius: 100px;
+        text-align: center;
+        color: white;
+        cursor: pointer;
+        
+        input[type="file"] {
+            display: none;
+            position: absolute;
+        }
+    }
+    label::before {
+        line-height: 140px;
+    }
+}
