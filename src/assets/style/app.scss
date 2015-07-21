@@ -1,0 +1,17 @@
+// Font size configuration
+$xxsmall: 8px;
+$xsmall: 12px;
+$small: 14px;
+$normal: 16px;
+$large: 18px;
+$xlarge: 22px;
+$xxlarge: 26px;
+$xxxlarge: 36px;
+$xxxxlarge: 72px;
+$xxxxxlarge: 100px;
+
+$font: "helvetica";
+
+body {
+	font-family: $font;
+}

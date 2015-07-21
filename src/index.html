@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html ng-app="selfiewall">
+    <head>        
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <title>Selfie Wall</title>
+
+        <base href="/">
+        
+        <!-- layout -->
+        <link rel="stylesheet" type="text/css" href="assets/style/reset.css" />
+        <link rel="stylesheet" type="text/css" href="assets/style/app.css" />
+    </head>
+    
+    <body>
+        <!-- Entry point of the application -->
+        <div ui-view></div>
+        
+        <!-- Libraries -->
+        <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-route/angular-route.min.js"></script>
+        <script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script type="text/javascript" src="bower_components/lodash/lodash.min.js"></script>
+        
+        <!-- Controllers -->
+        <script type="text/javascript" src="app/controllers/Controller.js"></script>
+        <script type="text/javascript" src="app/controllers/HomeController.js"></script>
+        
+        <!-- Config -->
+        <script type="text/javascript" src="config/routes.js"></script>
+        <script type="text/javascript" src="config/app.js"></script>
+    </body>
+</html>
