@@ -1,0 +1,49 @@
+$rotate: 12deg;
+
+back-action-item {
+    height: 50px;
+    width: 50px;
+    
+    > div {
+        overflow: hidden;
+        height: 50px;
+        position: relative;
+        
+        div.button {
+            position: absolute;
+            left: -5px;
+            top: -8px;
+            -ms-transform: rotate($rotate);
+            -webkit-transform: rotate($rotate);
+            transform: rotate($rotate);
+            width: 60px;
+            height: 70px;
+            cursor: pointer;
+            
+            span.fa {
+                display: block;
+                -ms-transform: rotate(-$rotate);
+                -webkit-transform: rotate(-$rotate);
+                transform: rotate(-$rotate);
+                font-size: $xxlarge + 3px;
+                line-height: 63px;
+                text-align: center;
+            }
+            
+            span.line {
+                width: 2px;
+                height: 40px;
+                background-color: $accent;
+                display: block;
+                float: right;
+                position: absolute;
+                right: 0px;
+                top: 7px;
+            }
+        }
+        div.button.ng-click-active {
+            background-color: #ccc;
+        }
+    }
+}
+    

@@ -12,7 +12,7 @@ routes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', func
     $urlRouterProvider.otherwise('/');
     
     // Enable the html5 mode
-    $locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(false);
 
     $stateProvider
         .state('home', {
