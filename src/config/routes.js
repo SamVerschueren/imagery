@@ -19,5 +19,10 @@ routes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', func
             url: '/',
             templateUrl: 'app/views/home/index.html',
             controller: 'HomeController'
+        })
+        .state('upload', {
+            url: '/upload',
+            templateUrl: 'app/views/upload/index.html',
+            controller: 'UploadController'
         });
 }]);

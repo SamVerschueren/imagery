@@ -3,18 +3,14 @@
 
 var components = angular.module('app.components');
 
-components.controller('ActionItemController', ['$scope', function($scope) {
-    $scope.trigger = function() {
-        
-    };
-}]).directive('actionItem', function() {
+components.directive('actionItem', function() {
 	return {
         restrict: 'E',
         scope: {
             icon: '@',
-            text: '@'
+            text: '@',
+            trigger: '&'
         },
-        templateUrl: 'app/components/actionitem/view.html',
-        controller: 'ActionItemController'
+        templateUrl: 'app/components/actionitem/view.html'
     };
 });
