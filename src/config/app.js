@@ -6,7 +6,7 @@
  * @author Sam Verschueren       <sam.verschueren@gmail.com>
  * @since  21 Jul. 2015
  */
-var app = angular.module('selfiewall', ['ngTouch', 'ngFileUpload', 'app.config', 'app.routes', 'app.components', 'app.controllers']);
+var app = angular.module('selfiewall', ['ngTouch', 'ngFileUpload', 'app.config', 'app.routes', 'app.models', 'app.components', 'app.controllers']);
 
 app.run(['$config', function($config) {
     // Configure AWS
