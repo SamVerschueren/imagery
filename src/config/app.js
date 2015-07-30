@@ -1,5 +1,3 @@
-/// <reference path="../../typings/lodash/lodash.d.ts"/>
-/// <reference path="../../typings/angularjs/angular.d.ts"/>
 'use strict';
 
 /**
@@ -10,7 +8,7 @@
  */
 var app = angular.module('selfiewall', ['ngTouch', 'ngFileUpload', 'app.config', 'app.routes', 'app.components', 'app.controllers']);
 
-app.run([function() {
+app.run(['$config', function($config) {
     // Configure AWS
-    //AWS.config.region = 'eu-west-1';
+    AWS.config.region = $config.AWS_REGION;
 }]);

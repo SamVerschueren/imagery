@@ -10,8 +10,9 @@
 var config = angular.module('app.config', []);
 
 config.constant('$config', {
-    API_URI: '',
-    API_KEY: '',
-    AWS_ACCESS_KEY_ID: '',
-    BUCKET: ''
+    API_URI: 'https://id.execute-api.eu-west-1.amazonaws.com/production',
+    API_KEY: 'my-api-key',
+    BUCKET_NAME: 'my-bucket-name',
+    COGNITO_POOL_ID: 'eu-west-1:ID',
+    AWS_REGION: 'eu-west-1'
 });
