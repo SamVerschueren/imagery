@@ -3,8 +3,10 @@
 
 var components = angular.module('app.components');
 
-components.controller('ActionItemController', [function() {
-
+components.controller('ActionItemController', ['$scope', function($scope) {
+    $scope.trigger = function() {
+        
+    };
 }]).directive('actionItem', function() {
 	return {
         restrict: 'E',
