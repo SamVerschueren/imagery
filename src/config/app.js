@@ -12,5 +12,5 @@ var app = angular.module('selfiewall', ['ngFileUpload', 'app.config', 'app.route
 
 app.run([function() {
     // Configure AWS
-    AWS.config.region = 'eu-west-1';
+    //AWS.config.region = 'eu-west-1';
 }]);
