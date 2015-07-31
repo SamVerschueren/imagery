@@ -1,0 +1,16 @@
+<header>
+    <div id="rightBarButton" ng-if="_data.rightBarButtonItem" ng-click="item.action()">
+        <span class="line"></span>
+        <span class="text" ng-bind="_data.rightBarButtonItem.title"></span>    
+    </div>
+    <!--<ul id="rightBarButtons">
+        <li ng-repeat="item in _data.rightBarButtonItems" ng-click="item.action()" class="action">
+            <span class="line"></span>
+            <span ng-bind="item.title"></span>
+        </li>
+    </ul>-->
+
+    <h1 ng-if="_data.title" ng-bind="_data.title"></h1>
+</header>
+
+<ui-view></ui-view>

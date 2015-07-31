@@ -15,6 +15,11 @@ routes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', func
     $locationProvider.html5Mode(false);
 
     $stateProvider
+        .state('titlebar', {
+            abstract: true,
+            templateUrl: 'app/views/includes/titlebar.html',
+            controller: 'TitleBarController'
+        })
         .state('home', {
             url: '/',
             templateUrl: 'app/views/home/index.html',
@@ -23,6 +28,7 @@ routes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', func
         .state('upload', {
             url: '/upload',
             templateUrl: 'app/views/upload/index.html',
+            parent: 'titlebar',
             controller: 'UploadController'
         });
 }]);

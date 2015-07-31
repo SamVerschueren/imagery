@@ -1,0 +1,61 @@
+$headerHeight: 44px;
+
+div[ui-view] {
+    > header {
+        height: $headerHeight;
+        letter-spacing: 1px;
+        box-shadow: inset 0px -2px 0px 0px $accent;
+
+        h1 {
+            line-height: $headerHeight;
+            text-align: center;
+            font-size: $large;
+            font-weight: 500;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        > span {
+            position: absolute;
+        }
+
+        .action {
+            text-decoration: none;
+            font-size: $large;
+            cursor: pointer;
+            line-height: $headerHeight;
+            max-height: $headerHeight;
+            min-width: $headerHeight;
+            text-align: center;
+        }
+        .action.ng-click-active {
+            color: darken($accent, 20%);
+        }
+
+        div#rightBarButton {
+            position: absolute;
+            right: 0px;
+            cursor: pointer;
+
+            span.line {
+                float: left;
+                width: 1px;
+                height: 30px;
+                background-color: #eee;
+                display: block;
+                margin-top: 6px;
+            }
+            
+            span.text {
+                color: $accent;
+                line-height: $headerHeight - 2px;
+                padding: 0px 10px;
+                font-size: $small;
+            }
+            
+            &.ng-click-active {
+                background-color: #eee;
+            }
+        }
+    }
+}

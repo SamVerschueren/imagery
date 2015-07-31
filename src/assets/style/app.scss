@@ -21,6 +21,8 @@ body {
     //background: black;
 }
 
+@import "general/header";
+
 @import "sections/components";
 @import "sections/home";
 @import "sections/upload";
