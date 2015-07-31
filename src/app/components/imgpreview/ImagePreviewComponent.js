@@ -20,15 +20,26 @@ components.directive('imgPreview', function() {
         templateUrl: 'app/components/imgpreview/view.html',
         link: function(scope, el) {
             var img = scope.imgSrc;
+                
+            // Specify the load options
+            var options = {
+                maxWidth: el[0].offsetWidth,
+                maxHeight: 200,
+                crop: true,
+                canvas: true
+            };
             
             // Load the image data
             window.loadImage.parseMetaData(img, function(data) {
                 if(!data.imageHead) {
+                    // If the file is not an image just return
                     return;
                 }
                 
-                // Retrieve the orientation of the image
-                var orientation = data.exif.get('Orientation');
+                if(data.exif) {
+                    // If we have exif date, use the orientation property to orient correctly
+                    options.orientation = data.exif.get('Orientation');
+                }
                 
                 // Load the image in the correct orientation
                 window.loadImage(img, function(canvas) {                    
@@ -36,7 +47,7 @@ components.directive('imgPreview', function() {
                         // Append the canvas to the dom.
                         el.append(canvas);
                     });
-                }, {orientation: orientation, canvas: true});
+                }, options);
             });
         }
     };
