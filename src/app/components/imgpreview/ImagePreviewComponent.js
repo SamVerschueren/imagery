@@ -11,7 +11,7 @@
 var components = angular.module('app.components');
 
 components.directive('imgPreview', function() {
-	return {
+    return {
         restrict: 'E',
         replace: true,
         scope: {

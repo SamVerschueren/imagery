@@ -6,7 +6,7 @@ var components = angular.module('app.components');
 components.controller('ActionbarController', [function() {
 
 }]).directive('actionbar', function() {
-	return {
+    return {
         restrict: 'E',
         transclude: true,
         templateUrl: 'app/components/actionbar/view.html',

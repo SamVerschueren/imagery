@@ -4,7 +4,7 @@
 var components = angular.module('app.components');
 
 components.directive('actionItem', function() {
-	return {
+    return {
         restrict: 'E',
         scope: {
             icon: '@',

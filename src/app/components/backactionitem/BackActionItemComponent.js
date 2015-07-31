@@ -4,7 +4,7 @@
 var components = angular.module('app.components');
 
 components.directive('backActionItem', function() {
-	return {
+    return {
         restrict: 'E',
         templateUrl: 'app/components/backactionitem/view.html',
         controller: ['$scope', function($scope) {
