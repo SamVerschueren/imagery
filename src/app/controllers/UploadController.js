@@ -7,9 +7,9 @@ ctrl.controller('UploadController', ['$scope', '$state', 'fileModel', function($
     // private
     var _this = {
         onCreate: function() {
-            // if(!$scope.file) {
-            //     $state.go('home');
-            // }
+            if(!$scope.file) {
+                $state.go('home');
+            }
             
             $scope.setTitle('Foto toevoegen');
             $scope.setRightBarButtonItem({
