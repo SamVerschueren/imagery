@@ -18,7 +18,15 @@ $accentActive: #5c7829;
 body {
     font-family: $font;
     color: #444;
-    //background: black;
+    
+    *:not(input) {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
 }
 
 @import "general/header";

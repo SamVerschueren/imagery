@@ -1,6 +1,28 @@
 section#upload {
+    position: absolute;
+    top: 44px;
+    bottom: 50px;
+    left: 0px;
+    right: 0px;
+    padding: 10px;
+    overflow: auto;
+    overflow-x: hidden;
     
     div#preview {
-        margin: 10px;
+        height: 200px;
+        width: 100%;
+        background-color: black;
+    }
+    
+    input#description {
+        margin-top: 10px;
+        width: 100%;
+        font-size: $large;
+        height: $xxxlarge;
+        border: none;
+        background-color: #eee;
+        outline: none;
+        padding: 0px 7px;
+        font-weight: 100;
     }
 }

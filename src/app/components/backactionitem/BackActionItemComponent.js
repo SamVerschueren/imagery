@@ -9,7 +9,6 @@ components.directive('backActionItem', function() {
         templateUrl: 'app/components/backactionitem/view.html',
         controller: ['$scope', function($scope) {
             $scope.back = function() {
-                console.log('go back');
                 history.go(-1);
             };
         }]
