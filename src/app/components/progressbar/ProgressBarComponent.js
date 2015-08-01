@@ -13,6 +13,7 @@ var components = angular.module('app.components');
 components.directive('progressBar', function() {
     return {
         restrict: 'E',
+        replace: true,
         scope: {
             value: '@'
         },

@@ -1,12 +1,10 @@
-progress-bar {
+div.progress {
+    display: block;
+    width: 100%;
+    height: 2px;
+    
     > div {
-        display: block;
-        width: 100%;
         height: 2px;
-        
-        > div {
-            height: 2px;
-            background-color: $accent;
-        }
+        background-color: $accent;
     }
 }
