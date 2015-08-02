@@ -18,8 +18,6 @@ ctrl.controller('UploadController', ['$scope', '$state', '$config', 'fileModel',
             });
         },
         upload: function() {
-            console.log('Start the upload');
-            
             var file = model.getFile();
             
             var dir,
