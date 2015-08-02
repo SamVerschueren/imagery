@@ -14,4 +14,8 @@ app.run(['$config', function($config) {
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
         IdentityPoolId: $config.COGNITO_POOL_ID,
     });
+    
+    // Make sure we have an identity stored. This should be done in the initial screen
+    // where the user fills in the username and email address.
+    AWS.config.credentials.get();
 }]);

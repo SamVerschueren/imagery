@@ -22,11 +22,20 @@ ctrl.controller('UploadController', ['$scope', '$state', '$config', 'fileModel',
             
             var file = model.getFile();
             
-            console.log(model.getFile());
+            var dir,
+                filename = new Date().valueOf(),
+                ext = file.name.split('.').pop().toLowerCase();
+            
+            try {
+                dir = AWS.config.credentials.identityId.split(':').pop().replace(/-/g, '');
+            }
+            catch(err) {
+                dir = 'unknown';
+            }
             
             var params = {
                 Bucket: $config.BUCKET_NAME,
-                Key: 'test.jpg',
+                Key: dir + '/' + filename + '.' + ext,
                 Body: file,
                 ContentType: file.type
             };
@@ -37,7 +46,7 @@ ctrl.controller('UploadController', ['$scope', '$state', '$config', 'fileModel',
                     return;
                 }
                 
-                console.log(data);
+                $state.go('home');
             });
             
             upload.on('httpUploadProgress', function(evt) {
