@@ -1,7 +1,7 @@
 <section id="upload">
     <img-preview img-src="file"></img-preview>
     
-    <input type="text" id="description" placeholder="Omschrijving" />
+    <input type="text" id="description" ng-model="description" placeholder="Omschrijving" />
     
     <progress-bar value="{{progress}}" ng-if="progress"></progress-bar>
 </section>

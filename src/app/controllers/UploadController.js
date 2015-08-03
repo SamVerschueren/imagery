@@ -1,8 +1,15 @@
 'use strict';
 
+/**
+ * TODO
+ * 
+ * - Refactor using models and services
+ * - Implement information screen when the user uses the upload for the first time
+ */
+
 var ctrl = angular.module('app.controllers');
 
-ctrl.controller('UploadController', ['$scope', '$state', '$config', 'fileModel', 'S3Service', function($scope, $state, $config, model, s3) {
+ctrl.controller('UploadController', ['$scope', '$state', '$config', '$http', 'fileModel', 'S3Service', function($scope, $state, $config, $http, model, s3) {
     
     // private
     var _this = {
@@ -44,7 +51,13 @@ ctrl.controller('UploadController', ['$scope', '$state', '$config', 'fileModel',
                     return;
                 }
                 
-                $state.go('home');
+                $http.post($config.API_URI + '/selfie', {email: 'sam.verschueren@gmail.com', description: $scope.description, selfie: params.Key})
+                    .then(function() {
+                        $state.go('home');
+                    })
+                    .catch(function(err) {
+                        console.error(err);
+                    })
             });
             
             upload.on('httpUploadProgress', function(evt) {
