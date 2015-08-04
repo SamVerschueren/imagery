@@ -14,10 +14,16 @@ angular.module('app.controllers')
                 $scope.setTitle('Foto toevoegen');
                 $scope.setRightBarButtonItem({
                     title: 'Upload',
-                    action: _this.upload
+                    action: _this.upload,
+                    enabled: $scope.progress === undefined
                 });
             },
             upload: function() {
+                if($scope.progress !== undefined) {
+                    // This means we are already uploading
+                    return;
+                }
+                
                 // Set the description provided by the user
                 model.setDescription($scope.description);
                 
