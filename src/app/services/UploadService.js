@@ -7,14 +7,21 @@
  * @author Sam Verschueren      <sam.verschueren@gmail.com>
  * @since  4 Aug. 2015
  */
-
 angular.module('app.services')
     .factory('uploadService', ['$rootScope', '$q', '$config', 'AWS', 'S3', function UploadService($rootScope, $q, $config, AWS, s3) {
         return {
+            /**
+             * This method will upload the file provided to the correct S3 location.
+             * 
+             * @param  {File}       file        The file that should be uploaded.
+             * @param  {Function}   [notify]    The notify callback that will be called when the upload progress changes.
+             * @return {Promise}                The promise object that will return the result.
+             */
             upload: function(file, notify) {
                 // Make a noop the default notify function
                 notify = notify || function() {};
                 
+                // Return a promise
                 return $q(function(resolve, reject) {
                     var dir,
                         filename = new Date().valueOf(),
@@ -45,7 +52,7 @@ angular.module('app.services')
                         }
                         
                         // Resolve the data if everything went well
-                        resolve(data);
+                        resolve(params.Key);
                     }).on('httpUploadProgress', function(evt) {
                         // Calculate the percentage and notify the listener
                         $rootScope.$apply(function() {

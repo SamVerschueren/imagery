@@ -1,76 +1,46 @@
 'use strict';
 
-/**
- * TODO
- * 
- * - Refactor using models and services
- * - Implement information screen when the user uses the upload for the first time
- */
-
-var ctrl = angular.module('app.controllers');
-
-ctrl.controller('UploadController', ['$scope', '$state', '$config', '$http', 'fileModel', 'S3Service', function($scope, $state, $config, $http, model, s3) {
-    
-    // private
-    var _this = {
-        onCreate: function() {
-            if(!$scope.file) {
-                $state.go('home');
-            }
-            
-            $scope.setTitle('Foto toevoegen');
-            $scope.setRightBarButtonItem({
-                title: 'Upload',
-                action: _this.upload
-            });
-        },
-        upload: function() {
-            var file = model.getFile();
-            
-            var dir,
-                filename = new Date().valueOf(),
-                ext = file.name.split('.').pop().toLowerCase();
-            
-            try {
-                dir = AWS.config.credentials.identityId.split(':').pop().replace(/-/g, '');
-            }
-            catch(err) {
-                dir = 'unknown';
-            }
-            
-            var params = {
-                Bucket: $config.BUCKET_NAME,
-                Key: dir + '/' + filename + '.' + ext,
-                Body: file,
-                ContentType: file.type
-            };
-            
-            var upload = s3.upload(params, function(err, data) {
-                if(err) {
-                    console.error(err);
-                    return;
+angular.module('app.controllers')
+    .controller('UploadController', ['$scope', '$state', '$config', '$http', 'fileModel', 'S3', function UploadController($scope, $state, $config, $http, model, s3) {
+        // private
+        var _this = {
+            onCreate: function() {
+                if(!model.getFile()) {
+                    // Go home, you're drunk!!!
+                    $state.go('home');
                 }
                 
-                $http.post($config.API_URI + '/selfie', {email: 'sam.verschueren@gmail.com', description: $scope.description, selfie: params.Key})
-                    .then(function() {
+                // Set the title and the right bar button item
+                $scope.setTitle('Foto toevoegen');
+                $scope.setRightBarButtonItem({
+                    title: 'Upload',
+                    action: _this.upload
+                });
+            },
+            upload: function() {
+                // Set the description provided by the user
+                model.setDescription($scope.description);
+                
+                // Start uploading the file and listen to progress changes
+                model.upload(_this.onProgressChanged)
+                    .then(function(result) {
+                        // Upload was successfull, go home
                         $state.go('home');
                     })
                     .catch(function(err) {
+                        // Something went wrong, handle the error
                         console.error(err);
-                    })
-            });
-            
-            upload.on('httpUploadProgress', function(evt) {
-                $scope.$apply(function() {
-                    $scope.progress = Number(evt.loaded / evt.total * 100).toFixed();
-                });
-            });
-        }
-    };
-    
-    // public
-    $scope.file = model.getFile();
-    
-    // Initialize the controller
-    _this.onCreate();
-}]);
+                    });
+            },
+            onProgressChanged: function(progress) {
+                // Make the progress public
+                $scope.progress = progress;
+            }
+        };
+        
+        // public
+        $scope.file = model.getFile();
+        
+        // Initialize the controller
+        _this.onCreate();
+    }]);
