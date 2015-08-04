@@ -24,7 +24,7 @@ components.directive('imgPreview', function() {
             // Specify the load options
             var options = {
                 maxWidth: el[0].offsetWidth,
-                maxHeight: 200,
+                maxHeight: el[0].offsetHeight,
                 crop: true,
                 canvas: true
             };
