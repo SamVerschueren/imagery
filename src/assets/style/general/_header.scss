@@ -1,7 +1,7 @@
 $headerHeight: 44px;
 
-div[ui-view] {
-    > header {
+div#content {
+    header {
         height: $headerHeight;
         letter-spacing: 1px;
         box-shadow: inset 0px -2px 0px 0px $accent;

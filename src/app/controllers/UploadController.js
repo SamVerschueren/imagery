@@ -7,7 +7,7 @@ angular.module('app.controllers')
             onCreate: function() {
                 if(!model.getFile()) {
                     // Go home, you're drunk!!!
-                    $state.go('home');
+                    return $state.go('home');
                 }
                 
                 // Set the title and the right bar button item
@@ -35,6 +35,12 @@ angular.module('app.controllers')
             onProgressChanged: function(progress) {
                 // Make the progress public
                 $scope.progress = progress;
+                
+                if(progress >= 100) {
+                    // If the progress is 100%, the API is called to store the data in the database so we
+                    // better show a loading indicator.
+                    $scope.loading(true);
+                }
             }
         };
         

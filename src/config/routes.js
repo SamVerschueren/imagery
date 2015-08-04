@@ -15,8 +15,14 @@ routes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', func
     $locationProvider.html5Mode(false);
 
     $stateProvider
+        .state('default', {
+            abstract: true,
+            templateUrl: 'app/views/includes/default.html',
+            controller: 'Controller'
+        })
         .state('titlebar', {
             abstract: true,
+            parent: 'default',
             templateUrl: 'app/views/includes/titlebar.html',
             controller: 'TitleBarController'
         })

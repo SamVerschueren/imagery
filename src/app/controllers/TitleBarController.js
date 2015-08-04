@@ -10,7 +10,7 @@
  */
 var ctrl = angular.module('app.controllers');
 
-ctrl.controller('TitleBarController', ['$scope', function($scope) {
+ctrl.controller('TitleBarController', ['$scope', function TitleBarController($scope) {
 
     // private
     var _this = {

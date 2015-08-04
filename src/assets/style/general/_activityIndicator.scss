@@ -1,0 +1,22 @@
+#backdrop {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 50px;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.7);
+    color: rgba(0, 0, 0, 0.7);
+}
+
+#activityIndicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    font-size: 100px;
+    margin-left: -50px;
+    margin-top: -50px;
+    color: #eee;
+    z-index: 2000;
+}

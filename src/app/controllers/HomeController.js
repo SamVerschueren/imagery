@@ -2,7 +2,7 @@
 
 var ctrl = angular.module('app.controllers');
 
-ctrl.controller('HomeController', ['$scope', '$state', 'fileModel', function($scope, $state, model) {
+ctrl.controller('HomeController', ['$scope', '$state', 'fileModel', function HomeController($scope, $state, model) {
     
     /**
      * Triggered when the user presses the upload button in the navigation bar.
