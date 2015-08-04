@@ -31,12 +31,7 @@ components.directive('imgPreview', function() {
             
             // Load the image data
             window.loadImage.parseMetaData(img, function(data) {
-                if(!data.imageHead) {
-                    // If the file is not an image just return
-                    return;
-                }
-                
-                if(data.exif) {
+                if(data.imageHead && data.exif) {
                     // If we have exif date, use the orientation property to orient correctly
                     options.orientation = data.exif.get('Orientation');
                 }
