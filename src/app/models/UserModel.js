@@ -5,9 +5,6 @@ angular.module('app.models')
     .factory('userModel', ['$config', function UserModel($config) {
         return {
             isValid: function() {
-                console.log(this.getName());
-                console.log(this.getMail());
-                
                 return this.getName() && this.getMail();
             },
             getName: function() {
