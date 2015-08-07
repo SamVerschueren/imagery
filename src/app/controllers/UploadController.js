@@ -57,6 +57,7 @@ angular.module('app.controllers')
         
         // public
         $scope.file = model.getFile();
+        $scope.description = model.getDescription();
         
         // Initialize the controller
         _this.onCreate();

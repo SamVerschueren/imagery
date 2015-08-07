@@ -39,7 +39,7 @@ angular.module('app.services')
                     // Build up the params that will be used to uplaod the file
                     var params = {
                         Bucket: $config.BUCKET_NAME,
-                        Key: dir + '/' + filename + '.' + ext,
+                        Key: 'raw/' + dir + '/' + filename + '.' + ext,
                         Body: file,
                         ContentType: file.type
                     };
