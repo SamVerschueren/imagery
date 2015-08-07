@@ -1,8 +1,18 @@
 <section id="user">
-    <form>
-        <input type="text" id="name" ng-model="name" placeholder="Naam" />
+    <p>
+        Onderstaande informatie dient slechts 1 keer ingevuld te worden.
+    </p>
+    
+    <form name="frm">
+        <div>
+            <i class="fa fa-exclamation-triangle" ng-show="frm.name.$invalid && frm.name.$touched"></i>
+            <input type="text" id="name" name="name" ng-model="name" placeholder="Naam" required />
+        </div>
         
-        <input type="text" id="mail" ng-model="mail" placeholder="E-mail adres" />
+        <div>
+            <i class="fa fa-exclamation-triangle" ng-show="frm.mail.$invalid && frm.mail.$touched"></i>
+            <input type="email" id="mail" name="mail" ng-model="mail" placeholder="E-mail adres" required />
+        </div>
     </form>
 </section>
 

@@ -18,12 +18,14 @@ angular.module('app.controllers')
                 });
             },
             save: function() {
-                // Set the information of the user
-                user.setName($scope.name);
-                user.setMail($scope.mail);
-                
-                // Go back to the upload state
-                $state.go('upload');
+                if($scope.frm.$valid === true) {
+                    // Set the information of the user
+                    user.setName($scope.name);
+                    user.setMail($scope.mail);
+                    
+                    // Go back to the upload state
+                    $state.go('upload');
+                }
             }
         };
         
