@@ -20,6 +20,15 @@ angular.module('app.services')
             save: function(file, description) {
                 // Post the data to the API
                 return $http.post($config.API_URI + '/selfie', {email: 'sam.verschueren@gmail.com', description: description, selfie: file});
+            },
+            /**
+             * This method will retrieve all the selfies from the server.
+             * 
+             * @return {Promise}                    The promise object.
+             */
+            load: function() {
+                // Load all the selfies
+                return $http.get($config.API_URI + '/selfies');
             }
         };
     }]);

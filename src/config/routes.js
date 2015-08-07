@@ -36,5 +36,11 @@ routes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', func
             templateUrl: 'app/views/upload/index.html',
             parent: 'titlebar',
             controller: 'UploadController'
+        })
+        .state('user', {
+            url: '/user',
+            templateUrl: 'app/views/user/index.html',
+            parent: 'titlebar',
+            controller: 'UserController'
         });
 }]);

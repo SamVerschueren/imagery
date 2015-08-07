@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app.controllers')
-    .controller('UploadController', ['$scope', '$state', '$config', '$http', 'fileModel', 'S3', function UploadController($scope, $state, $config, $http, model, s3) {
+    .controller('UploadController', ['$scope', '$state', '$config', '$http', 'fileModel', 'userModel', 'S3', function UploadController($scope, $state, $config, $http, model, user, s3) {
         // private
         var _this = {
             onCreate: function() {
@@ -26,6 +26,13 @@ angular.module('app.controllers')
                 
                 // Set the description provided by the user
                 model.setDescription($scope.description);
+                
+                console.log(user.isValid());
+                
+                if(!user.isValid()) {
+                    // If the user is not valid, let him fill in the form first
+                    return $state.go('user');
+                }
                 
                 // Start uploading the file and listen to progress changes
                 model.upload(_this.onProgressChanged)

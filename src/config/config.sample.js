@@ -14,5 +14,6 @@ config.constant('$config', {
     API_KEY: 'my-api-key',
     BUCKET_NAME: 'my-bucket-name',
     COGNITO_POOL_ID: 'eu-west-1:ID',
-    AWS_REGION: 'eu-west-1'
+    AWS_REGION: 'eu-west-1',
+    STORAGE: 'my-app'
 });
