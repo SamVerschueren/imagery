@@ -18,9 +18,18 @@ angular.module('app.controllers')
                 });
             },
             save: function() {
+                // Set the information of the user
+                user.setName($scope.name);
+                user.setMail($scope.mail);
                 
+                // Go back to the upload state
+                $state.go('upload');
             }
         };
+        
+        // public
+        $scope.name = user.getName();
+        $scope.mail = user.getMail();
         
         // Initialize the controller
         _this.onCreate();

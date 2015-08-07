@@ -14,12 +14,14 @@ angular.module('app.services')
              * This method will store the metadata on the server.
              * 
              * @param  {String}     file            The path to the file.
+             * @param  {String}     email           The email address of the user who is uploading this file.
+             * @param  {String}     name            The name of the user who is uploading this file.
              * @param  {String}     description     The description of the file
              * @return {Promise}                    The promise object.
              */
-            save: function(file, description) {
+            save: function(file, email, name, description) {
                 // Post the data to the API
-                return $http.post($config.API_URI + '/selfie', {email: 'sam.verschueren@gmail.com', description: description, selfie: file});
+                return $http.post($config.API_URI + '/selfie', {email: email, name: name, description: description, selfie: file});
             },
             /**
              * This method will retrieve all the selfies from the server.

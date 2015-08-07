@@ -17,7 +17,7 @@ angular.module('app.models')
                 window.localStorage.setItem($config.STORAGE + '.name', name);
             },
             getMail: function() {
-                return window.localStorage.getItem($config.STORAGE + '.email');
+                return window.localStorage.getItem($config.STORAGE + '.mail');
             },
             setMail: function(mail) {
                 window.localStorage.setItem($config.STORAGE + '.mail', mail);

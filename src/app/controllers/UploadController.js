@@ -27,8 +27,6 @@ angular.module('app.controllers')
                 // Set the description provided by the user
                 model.setDescription($scope.description);
                 
-                console.log(user.isValid());
-                
                 if(!user.isValid()) {
                     // If the user is not valid, let him fill in the form first
                     return $state.go('user');
