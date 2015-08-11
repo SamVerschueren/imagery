@@ -6,38 +6,161 @@ section#home {
     bottom: $actionBarHeight;
     overflow: auto;
     padding: 5px;
+    font-size: 0;
     
-    ul {
-        margin: 0 auto;
+    div.cell {
+        width: 150px;
+        padding-bottom: 150px;
+        position: relative;
+        display: inline-block;
         
-        li {
-            padding: 5px;
-            text-align: center;
-            width: 150px;
-            display: inline-block;
+        > div {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            bottom: 0px;
+            right: 0px;
             
-            img {
+            > div {
+                padding: 5px;
                 width: 100%;
-                max-width: 150px;
-            }
-        }
-        
-        @media (max-width: 600px) {
-            li {
-                width: 25%;
-            }
-        }
-        
-        @media (max-width: 490px) {
-            li {
-                width: 33%;
-            }
-        }
-        
-        @media (max-width: 380px) {
-            li {
-                width: 50%;
+                height: 100%;
+                
+                img {
+                    width: 100%;
+                    max-width: 150px;
+                }
             }
         }
     }
+    
+    @media (max-width: 2410px) {
+        div.cell {
+            width: percentage(1/15);
+            padding-bottom: percentage(1/15);
+        }
+    }
+    
+    @media (max-width: 2250px) {
+        div.cell {
+            width: percentage(1/14);
+            padding-bottom: percentage(1/14);
+        }
+    }
+    
+    @media (max-width: 2090px) {
+        div.cell {
+            width: percentage(1/13);
+            padding-bottom: percentage(1/13);
+        }
+    }
+    
+    @media (max-width: 1930px) {
+        div.cell {
+            width: percentage(1/12);
+            padding-bottom: percentage(1/12);
+        }
+    }
+    
+    @media (max-width: 1770px) {
+        div.cell {
+            width: percentage(1/11);
+            padding-bottom: percentage(1/11);
+        }
+    }
+    
+    @media (max-width: 1610px) {
+        div.cell {
+            width: percentage(1/10);
+            padding-bottom: percentage(1/10);
+        }
+    }
+    
+    @media (max-width: 1450px) {
+        div.cell {
+            width: percentage(1/9);
+            padding-bottom: percentage(1/9);
+        }
+    }
+    
+    @media (max-width: 1290px) {
+        div.cell {
+            width: percentage(1/8);
+            padding-bottom: percentage(1/8);
+        }
+    }
+    
+    @media (max-width: 1130px) {
+        div.cell {
+            width: percentage(1/7);
+            padding-bottom: percentage(1/7);
+        }
+    }
+    
+    @media (max-width: 970px) {
+        div.cell {
+            width: percentage(1/6);
+            padding-bottom: percentage(1/6);
+        }
+    }
+    
+    @media (max-width: 810px) {
+        div.cell {
+            width: 20%;
+            padding-bottom: 20%;
+        }
+    }
+    
+    @media (max-width: 600px) {
+        div.cell {
+            width: 25%;
+            padding-bottom: 25%;
+        }
+    }
+    
+    @media (max-width: 490px) {
+        div.cell {
+            width: 33%;
+            padding-bottom: 33%;
+        }
+    }
+    
+    @media (max-width: 390px) {
+        div.cell {
+            width: 50%;
+            padding-bottom: 50%;
+        }
+    }
+    
+    // ul {
+    //     margin: 0 auto;
+        
+    //     li {
+    //         text-align: center;
+    //         width: 150px;
+    //         padding-bottom: 150px;
+    //         display: inline-block;
+    //         position: relative;
+            
+    //         img {
+    //             width: 100%;
+    //             max-width: 150px;
+    //         }
+    //     }
+        
+        
+    //     @media (max-width: 490px) {
+    //         li {
+    //             width: 33%;
+    //             padding-bottom: 33%;
+    //         }
+    //     }
+        
+    //     @media (max-width: 380px) {
+    //         li {
+    //             width: 50%;
+    //             padding-bottom: 50%;
+    //         }
+    //     }
+    // }
 }

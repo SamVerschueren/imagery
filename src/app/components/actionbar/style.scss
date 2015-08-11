@@ -6,5 +6,6 @@ actionbar {
         left: 0px;
         right: 0px;
         height: $actionBarHeight;
+        z-index: 1000;
     }
 }

@@ -1,0 +1,13 @@
+div.img-async {
+    position: relative;
+    
+    i.fa-spin {
+        position: absolute;
+        font-size: 36px;
+        color: $accent;
+        top: 50%;
+        left: 50%;
+        margin-left: -20px;
+        margin-top: -20px;
+    }
+}

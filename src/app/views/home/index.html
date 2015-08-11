@@ -1,9 +1,9 @@
-<section id="home">
-    <ul ng-if="model.getImages().length > 0">
-        <li ng-repeat="image in model.getImages()">
-            <img ng-src="http://{{config.BUCKET_NAME}}.s3-eu-west-1.amazonaws.com/thumbs/{{image.image}}" />
-        </li>
-    </ul>
+<section id="home" ng-if="model.getImages().length > 0">
+    <div class="cell" ng-repeat="image in model.getImages() | orderBy:'-date'">
+        <div>
+            <img-async ng-src="{{ 'http://' + config.BUCKET_NAME + '.s3-eu-west-1.amazonaws.com/thumbs/' + image.image | trusted }}" />
+        </div>
+    </div>
 </section>
 
 <actionbar>

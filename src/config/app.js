@@ -22,3 +22,9 @@ app.run(['$rootScope', '$config', 'AWS', function($scope, $config, AWS) {
     // Expose the config
     $scope.config = $config;
 }]);
+
+app.filter('trusted', ['$sce', function ($sce) {
+    return function(url) {
+        return $sce.trustAsResourceUrl(url);
+    };
+}]);
