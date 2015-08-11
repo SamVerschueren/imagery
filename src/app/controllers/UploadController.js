@@ -35,7 +35,10 @@ angular.module('app.controllers')
                 // Start uploading the file and listen to progress changes
                 model.upload(_this.onProgressChanged)
                     .then(function(result) {
-                        // Upload was successfull, go home
+                        // Upload was successfull, reset the model first
+                        model.reset();
+                        
+                        // Go home
                         $state.go('home');
                     })
                     .catch(function(err) {

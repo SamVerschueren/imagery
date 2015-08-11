@@ -3,6 +3,10 @@
 // Expose the service
 angular.module('app.models').factory('fileModel', ['userModel', 'uploadService', 'imageService', function FileModel(userModel, uploadService, imageService) {
     return {
+        reset: function() {
+           this._file = undefined;
+           this._description = undefined;
+        },
         setFile: function(file) {
             this._file = file;
         },

@@ -14,7 +14,7 @@ angular.module('app.models')
             loadImages: function() {
                 imageService.load()
                     .then(function(result) {
-                        _this.images = _this.images.concat(result);
+                        _this.images = result;
                     })
             }
         };
