@@ -1,8 +1,12 @@
-<section id="home" ng-if="model.getImages().length > 0">
-    <div class="cell" ng-repeat="image in model.getImages() | orderBy:'-date'">
+<section id="home" ng-if="model.getImages().length > 0" infinite-scroll="loadMore()">
+    <div class="cell" ng-repeat="image in model.getImages() track by image.image | orderBy:'-date'">
         <div>
             <img-async ng-src="{{ 'http://' + config.BUCKET_NAME + '.s3-eu-west-1.amazonaws.com/thumbs/' + image.image | trusted }}" />
         </div>
+        <footer>
+            <!--<h2>{{ image.name }}</h2>-->
+            <time>{{ moment(image.date).format('DD/MM HH:mm') }}</time>
+        </footer>
     </div>
 </section>
 

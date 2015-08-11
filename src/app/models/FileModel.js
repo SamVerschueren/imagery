@@ -1,7 +1,7 @@
 'use strict';
 
 // Expose the service
-angular.module('app.models').factory('fileModel', ['userModel', 'uploadService', 'imageService', function FileModel(userModel, uploadService, imageService) {
+angular.module('app.models').factory('fileModel', ['userModel', 'imageModel', 'uploadService', 'imageService', function FileModel(userModel, imageModel, uploadService, imageService) {
     return {
         reset: function() {
            this._file = undefined;
@@ -27,6 +27,9 @@ angular.module('app.models').factory('fileModel', ['userModel', 'uploadService',
                 .then(function(file) {
                     // Save the image
                     return imageService.save(file, description);
+                })
+                .then(function(image) {
+                    imageModel.prepend(image);  
                 });
         }
     };

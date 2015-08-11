@@ -29,17 +29,30 @@ angular.module('app.services')
                 };
                 
                 // Post the data to the API
-                return $http.post($config.API_URI + '/selfie', body);
+                return $http.post($config.API_URI + '/selfie', body)
+                    .then(function(result) {
+                        return result.data;
+                    });
             },
             /**
              * This method will retrieve all the selfies from the server.
              * 
              * @return {Promise}                    The promise object.
              */
-            load: function() {
+            load: function(image) {
+                var qs = '';
+                
+                if(image) {
+                    qs = '?since=' + encodeURIComponent(image.date);
+                }
+                
+                console.log(qs);
+                
                 // Load all the selfies
-                return $http.get($config.API_URI + '/selfies')
+                return $http.get($config.API_URI + '/selfies' + qs)
                     .then(function(result) {
+                        console.log(result.data);
+                        
                         return result.data;
                     });
             }

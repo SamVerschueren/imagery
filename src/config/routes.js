@@ -28,6 +28,7 @@ routes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', func
         })
         .state('home', {
             url: '/',
+            parent: 'default',
             templateUrl: 'app/views/home/index.html',
             controller: 'HomeController'
         })

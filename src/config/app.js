@@ -21,6 +21,7 @@ app.run(['$rootScope', '$config', 'AWS', function($scope, $config, AWS) {
     
     // Expose the config
     $scope.config = $config;
+    $scope.moment = moment;
 }]);
 
 app.filter('trusted', ['$sce', function ($sce) {

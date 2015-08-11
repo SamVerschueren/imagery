@@ -6,10 +6,16 @@ angular.module('app.controllers')
         // private
         var _this = {
             onCreate: function() {
-                imageModel.loadImages();
+                if(imageModel.getImages().length === 0) {
+                    $scope.loading(true);
+                
+                    imageModel.loadImages()
+                        .then(function() {
+                            $scope.loading(false);  
+                        });
+                }
             }
         };
-    
     
         // public
         $scope.model = imageModel;
@@ -24,6 +30,17 @@ angular.module('app.controllers')
                 
                 // Navigate to the upload state
                 $state.go('upload');
+            }
+        };
+        
+        $scope.loadMore = function() {
+            if(!$scope._data.loading) {
+                $scope.loading(true);
+                
+                imageModel.loadMore()
+                    .then(function() {
+                        $scope.loading(false);
+                    });
             }
         };
         

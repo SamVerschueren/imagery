@@ -6,8 +6,7 @@ angular.module('app.components')
             restrict: 'E',
             replace: true,
             scope: {
-                ngSrc: '@',
-                alt: '@'
+                ngSrc: '@'
             },
             templateUrl: 'app/components/imgasync/view.html',
             link: function(scope, element, attrs) {
@@ -22,14 +21,12 @@ angular.module('app.components')
                 };
     
                 scope.$watch('ngSrc', function(source) {
-                    scope.loading = true;
-                    
-                    image.alt = scope.alt;
-                    
                     check(source);
                 });
                 
                 function check(source, index) {
+                    scope.loading = true;
+                    
                     index = index || 0;
                     
                     $timeout(function() {
@@ -37,10 +34,10 @@ angular.module('app.components')
                             .then(function() {
                                 image.src = source;
                             })
-                            .catch(function(err) {
+                            .catch(function(err) {                                
                                 check(source, index+1);
                             });
-                    }, index*500);
+                    }, index*300);
                 }
             }
         };

@@ -1,6 +1,9 @@
 <div id="content">
-    <div id="backdrop" ng-if="_data.loading"></div>
-    <div id="activityIndicator" class="fa fa-spinner fa-pulse" ng-if="_data.loading"></div>
+    <div id="activityIndicator" class="spinner" ng-if="_data.loading">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+    </div>
 
     <ui-view></ui-view>
 </div>
