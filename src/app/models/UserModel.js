@@ -2,10 +2,13 @@
 
 // Expose the model
 angular.module('app.models')
-    .factory('userModel', ['$config', function UserModel($config) {
+    .factory('userModel', ['$config', 'AWS', function UserModel($config, AWS) {
         return {
             isValid: function() {
                 return this.getName() && this.getMail();
+            },
+            getID: function() {
+                return AWS.config.credentials.identityId.split(':').pop();
             },
             getName: function() {
                 return window.localStorage.getItem($config.STORAGE + '.name');

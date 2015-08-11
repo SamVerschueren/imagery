@@ -8,20 +8,28 @@
  * @since  4 Aug. 2015
  */
 angular.module('app.services')
-    .factory('imageService', ['$http', '$config', function ImageService($http, $config) {
+    .factory('imageService', ['$http', '$config', 'userModel', function ImageService($http, $config, user) {
         return {
             /**
              * This method will store the metadata on the server.
              * 
-             * @param  {String}     file            The path to the file.
-             * @param  {String}     email           The email address of the user who is uploading this file.
-             * @param  {String}     name            The name of the user who is uploading this file.
+             * @param  {String}     file            The file name.
              * @param  {String}     description     The description of the file
              * @return {Promise}                    The promise object.
              */
-            save: function(file, email, name, description) {
+            save: function(file, description) {
+                // Define the body
+                var body = {
+                    id: user.getID(),
+                    name: user.getName(),
+                    email: user.getMail(),
+                    description: description,
+                    image: file,
+                    date: moment().format()
+                };
+                
                 // Post the data to the API
-                return $http.post($config.API_URI + '/selfie', {email: email, name: name, description: description, selfie: file});
+                return $http.post($config.API_URI + '/selfie', body);
             },
             /**
              * This method will retrieve all the selfies from the server.
@@ -30,7 +38,10 @@ angular.module('app.services')
              */
             load: function() {
                 // Load all the selfies
-                return $http.get($config.API_URI + '/selfies');
+                return $http.get($config.API_URI + '/selfies')
+                    .then(function(result) {
+                        return result.data;
+                    });
             }
         };
     }]);

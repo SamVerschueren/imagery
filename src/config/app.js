@@ -8,7 +8,7 @@
  */
 var app = angular.module('selfiewall', ['ngTouch', 'ngFileUpload', 'ngAWS', 'app.config', 'app.routes', 'app.services', 'app.models', 'app.components', 'app.controllers']);
 
-app.run(['$config', 'AWS', function($config, AWS) {
+app.run(['$rootScope', '$config', 'AWS', function($scope, $config, AWS) {
     // Configure AWS
     AWS.config.region = $config.AWS_REGION;
     AWS.config.credentials = new AWS.CognitoIdentityCredentials({
@@ -18,4 +18,7 @@ app.run(['$config', 'AWS', function($config, AWS) {
     // Make sure we have an identity stored. This should be done in the initial screen
     // where the user fills in the username and email address.
     AWS.config.credentials.get();
+    
+    // Expose the config
+    $scope.config = $config;
 }]);

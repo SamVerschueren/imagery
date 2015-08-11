@@ -8,7 +8,7 @@
  * @since  4 Aug. 2015
  */
 angular.module('app.services')
-    .factory('uploadService', ['$rootScope', '$q', '$config', 'AWS', 'S3', function UploadService($rootScope, $q, $config, AWS, s3) {
+    .factory('uploadService', ['$rootScope', '$q', '$config', 'userModel', 'AWS', 'S3', function UploadService($rootScope, $q, $config, user, AWS, s3) {
         return {
             /**
              * This method will upload the file provided to the correct S3 location.
@@ -23,23 +23,14 @@ angular.module('app.services')
                 
                 // Return a promise
                 return $q(function(resolve, reject) {
-                    var dir,
-                        filename = new Date().valueOf(),
-                        ext = file.name.split('.').pop().toLowerCase();
-                    
-                    try {
-                        // Retrieve the UUI out of the ID
-                        dir = AWS.config.credentials.identityId.split(':').pop().replace(/-/g, '');
-                    }
-                    catch(err) {
-                        // If an error occurs, this means the identityId is unknown
-                        throw new Error('Something went wrong while creating an identity.');
-                    }
+                    var dir = user.getID(),
+                        ext = file.name.split('.').pop().toLowerCase(),
+                        filename = new Date().valueOf() + '.' + ext;
                     
                     // Build up the params that will be used to uplaod the file
                     var params = {
                         Bucket: $config.BUCKET_NAME,
-                        Key: 'raw/' + dir + '/' + filename + '.' + ext,
+                        Key: 'raw/' + dir + '/' + filename,
                         Body: file,
                         ContentType: file.type
                     };
@@ -52,7 +43,7 @@ angular.module('app.services')
                         }
                         
                         // Resolve the data if everything went well
-                        resolve(params.Key);
+                        resolve(dir + '/' + filename);
                     }).on('httpUploadProgress', function(evt) {
                         // Calculate the percentage and notify the listener
                         $rootScope.$apply(function() {

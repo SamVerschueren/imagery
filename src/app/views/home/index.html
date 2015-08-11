@@ -1,5 +1,11 @@
 <section id="home">
-    <actionbar>
-        <action-item icon="fa fa-cloud-upload" text="Upload" ngf-select ngf-change="upload($files)" accept="image/*" ngf-accept="'image/*'"></action-item>
-    </actionbar>
+    <ul ng-if="model.getImages().length > 0">
+        <li ng-repeat="image in model.getImages()">
+            <img ng-src="http://{{config.BUCKET_NAME}}.s3-eu-west-1.amazonaws.com/raw/{{image.image}}" width="150" height="150" />
+        </li>
+    </ul>
 </section>
+
+<actionbar>
+    <action-item icon="fa fa-cloud-upload" text="Upload" ngf-select ngf-change="upload($files)" accept="image/*" ngf-accept="'image/*'"></action-item>
+</actionbar>

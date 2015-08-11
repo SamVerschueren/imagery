@@ -22,7 +22,7 @@ angular.module('app.models').factory('fileModel', ['userModel', 'uploadService',
             return uploadService.upload(this._file, notify)
                 .then(function(file) {
                     // Save the image
-                    return imageService.save(file, userModel.getMail(), userModel.getName(), description);
+                    return imageService.save(file, description);
                 });
         }
     };
