@@ -46,13 +46,9 @@ angular.module('app.services')
                     qs = '?since=' + encodeURIComponent(image.date);
                 }
                 
-                console.log(qs);
-                
                 // Load all the selfies
                 return $http.get($config.API_URI + '/selfies' + qs)
                     .then(function(result) {
-                        console.log(result.data);
-                        
                         return result.data;
                     });
             }
