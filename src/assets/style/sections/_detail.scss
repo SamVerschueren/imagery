@@ -1,0 +1,19 @@
+section#detail {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: $actionBarHeight;
+    overflow: auto;
+    padding: 5px;
+    font-size: 0;
+    -webkit-overflow-scrolling: touch;
+    
+    div.image {
+        text-align: center;
+        
+        img {
+            max-width: 100%;
+        }
+    }
+}

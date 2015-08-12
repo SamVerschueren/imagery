@@ -1,5 +1,5 @@
 <section id="home" ng-if="model.getImages().length > 0" infinite-scroll="loadMore()">
-    <div class="cell" ng-repeat="image in model.getImages() track by image.image | orderBy:'-date'">
+    <div class="cell" ng-repeat="image in model.getImages() track by image.image | orderBy:'-date'" ng-click="select(image)">
         <div>
             <img-async ng-src="{{ 'http://' + config.BUCKET_NAME + '.s3-eu-west-1.amazonaws.com/thumbs/' + image.image | trusted }}" />
         </div>

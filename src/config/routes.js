@@ -32,6 +32,12 @@ routes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', func
             templateUrl: 'app/views/home/index.html',
             controller: 'HomeController'
         })
+        .state('detail', {
+            url: '/detail',
+            parent: 'default',
+            templateUrl: 'app/views/detail/index.html',
+            controller: 'ImageDetailController'
+        })
         .state('upload', {
             url: '/upload',
             templateUrl: 'app/views/upload/index.html',

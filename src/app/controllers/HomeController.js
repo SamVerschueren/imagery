@@ -47,6 +47,12 @@ angular.module('app.controllers')
             }
         };
         
+        $scope.select = function(image) {
+            imageModel.setImage(image);
+            
+            $state.go('detail');
+        };
+        
         // Initialize the controller
         _this.onCreate();
     }]);

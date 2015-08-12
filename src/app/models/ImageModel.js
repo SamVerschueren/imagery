@@ -5,12 +5,19 @@ angular.module('app.models')
     .factory('imageModel', ['$q', '$config', 'imageService', function ImageModel($q, $config, imageService) {
         var _this = {
             images: [],
-            blockMore: false
+            blockMore: false,
+            image: undefined
         };
         
         return {
             getImages: function() {
                 return _this.images;
+            },
+            getImage: function() {
+                return _this.image;
+            },
+            setImage: function(image) {
+                _this.image = image;
             },
             prepend: function(image) {
                 // Add the image at the first position of the list
