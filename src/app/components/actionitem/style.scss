@@ -8,7 +8,7 @@ action-item {
         height: 78px;
         text-align: center;
         
-        > button {
+        > div.button {
             width: 56px;
             height: 56px;
             background-color: $accent;
@@ -22,14 +22,16 @@ action-item {
             left: 50%;
             margin-left: -28px;
             outline: none;
+            line-height: 56px;
         }
         
-        > button.ng-click-active {
+        > div.button.ng-click-active {
             width: 60px;
             height: 60px;
             top: 0px;
             margin-left: -30px;
             background-color: $accentActive;
+            line-height: 60px;
         }
         
         > span {
