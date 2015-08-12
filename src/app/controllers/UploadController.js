@@ -2,6 +2,8 @@
 
 angular.module('app.controllers')
     .controller('UploadController', ['$scope', '$state', '$config', '$http', 'fileModel', 'userModel', 'S3', function UploadController($scope, $state, $config, $http, model, user, s3) {
+        var uploading = false;
+        
         // private
         var _this = {
             onCreate: function() {
@@ -22,15 +24,21 @@ angular.module('app.controllers')
                 });
             },
             upload: function() {
-                if($scope.progress !== undefined) {
+                if(uploading) {
                     // This means we are already uploading
                     return;
                 }
+                
+                // Set the uploading flag to true
+                uploading = true;
                 
                 // Set the description provided by the user
                 model.setDescription($scope.description);
                 
                 if(!user.isValid()) {
+                    // Set the uploading flag back to false
+                    uploading = false;
+                    
                     // If the user is not valid, let him fill in the form first
                     return $state.go('user');
                 }
@@ -45,6 +53,8 @@ angular.module('app.controllers')
                         $state.go('home');
                     })
                     .catch(function(err) {
+                        uploading = false;
+                        
                         // Something went wrong, handle the error
                         console.error(err);
                     });
