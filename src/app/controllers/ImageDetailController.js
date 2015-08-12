@@ -12,6 +12,9 @@ angular.module('app.controllers')
                     // Go home, you're drunk!!!
                     return $state.go('home');
                 }
+                
+                $scope.setTitle(imageModel.getImage().name);
+                $scope.setSubTitle(moment(imageModel.getImage().date).format('DD/MM/YYYY HH:mm'));
             }
         };
         

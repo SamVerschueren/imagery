@@ -1,6 +1,6 @@
 section#detail {
     position: absolute;
-    top: 0px;
+    top: 44px;
     left: 0px;
     right: 0px;
     bottom: $actionBarHeight;
@@ -15,5 +15,13 @@ section#detail {
         img {
             max-width: 100%;
         }
+    }
+    
+    p {
+        margin-top: 10px;
+        padding: 10px;
+        background-color: #eee;
+        font-size: $normal;
+        line-height: $normal + 5px;
     }
 }

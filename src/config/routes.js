@@ -34,7 +34,7 @@ routes.config(['$stateProvider', '$locationProvider', '$urlRouterProvider', func
         })
         .state('detail', {
             url: '/detail',
-            parent: 'default',
+            parent: 'titlebar',
             templateUrl: 'app/views/detail/index.html',
             controller: 'ImageDetailController'
         })

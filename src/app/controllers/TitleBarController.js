@@ -31,6 +31,15 @@ ctrl.controller('TitleBarController', ['$scope', function TitleBarController($sc
     $scope.setTitle = function(title) {
         data.title = title;
     };
+    
+    /**
+     * Sets the sub title of the titlebar.
+     *
+     * @param  String subTitle  The sub title of the titlebar
+     */
+    $scope.setSubTitle = function(subTitle) {
+        data.subTitle = subTitle;
+    };
 
     /**
      * Sets the right bar button item.
@@ -48,6 +57,7 @@ ctrl.controller('TitleBarController', ['$scope', function TitleBarController($sc
         $scope.$parent.clear();
         
         data.title = undefined;
+        data.subTitle = undefined;
         data.rightBarButtonItem = undefined;
     };
 

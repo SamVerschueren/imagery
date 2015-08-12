@@ -4,7 +4,10 @@
         <span class="text" ng-bind="_data.rightBarButtonItem.title"></span>    
     </div>
 
-    <h1 ng-if="_data.title" ng-bind="_data.title"></h1>
+    <div class="title">
+        <h1 ng-if="_data.title" ng-bind="_data.title"></h1>
+        <h2 ng-if="_data.subTitle" ng-bind="_data.subTitle"></h2>
+    </div>
 </header>
 
 <ui-view></ui-view>

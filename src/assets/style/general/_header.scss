@@ -5,14 +5,35 @@ div#content {
         height: $headerHeight;
         letter-spacing: 1px;
         box-shadow: inset 0px -2px 0px 0px $accent;
+        position: relative;
 
-        h1 {
-            line-height: $headerHeight;
-            text-align: center;
-            font-size: $large;
-            font-weight: 500;
-            text-overflow: ellipsis;
-            white-space: nowrap;
+        div.title {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+            right: 5px;
+            bottom: $headerHeight - 5px;
+            z-index: -1000;
+            
+            h1:last-child {
+                line-height: $headerHeight - 10px;
+                text-align: center;
+                font-size: $large;
+                font-weight: 500;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            
+            h1:not(:last-child) {
+                font-size: $large;
+                font-weight: 500;
+            }
+            
+            h2 {
+                font-size: $xsmall;
+                font-weight: 100;
+                margin-top: 3px;
+            }
         }
 
         > span {
