@@ -5,6 +5,9 @@ angular.module('app.controllers')
         // private
         var _this = {
             onCreate: function() {
+                // Make sure to reset the scope
+                $scope.clear();
+                
                 if(user.isValid()) {
                     // If the user is valid, go back to the upload page
                     return $state.go('upload');

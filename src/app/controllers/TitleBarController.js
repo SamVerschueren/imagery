@@ -45,6 +45,8 @@ ctrl.controller('TitleBarController', ['$scope', function TitleBarController($sc
      * Clears the title and the action of the titlebar.
      */
     $scope.clear = function() {
+        $scope.$parent.clear();
+        
         data.title = undefined;
         data.rightBarButtonItem = undefined;
     };

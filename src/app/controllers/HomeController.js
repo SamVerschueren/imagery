@@ -6,6 +6,9 @@ angular.module('app.controllers')
         // private
         var _this = {
             onCreate: function() {
+                // Make sure to reset the scope
+                $scope.clear();
+                
                 if(imageModel.getImages().length === 0) {
                     $scope.loading(true);
                 

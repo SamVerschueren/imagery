@@ -5,6 +5,9 @@ angular.module('app.controllers')
         // private
         var _this = {
             onCreate: function() {
+                // Make sure to reset the scope
+                $scope.clear();
+                
                 if(!model.getFile()) {
                     // Go home, you're drunk!!!
                     return $state.go('home');
@@ -40,8 +43,6 @@ angular.module('app.controllers')
                         
                         // Go home
                         $state.go('home');
-                        
-                        $scope.loading(false);
                     })
                     .catch(function(err) {
                         // Something went wrong, handle the error

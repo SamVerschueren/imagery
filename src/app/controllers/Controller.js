@@ -17,4 +17,11 @@ controllers.controller('Controller', ['$scope', function Controller($scope) {
     $scope.loading = function(loading) {
         data.loading = loading;
     };
+    
+     /**
+     * Clears the title and the action of the titlebar.
+     */
+    $scope.clear = function() {
+        data.loading = false;
+    }
 }]);
