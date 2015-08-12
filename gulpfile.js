@@ -181,6 +181,16 @@ gulp.task('minify', ['clean', 'sass'], function() {
 });
 
 /**
+ * The copy task copies all the font files in the assets/fonts directory to the
+ * dist folder. It flattens the entire structure so that all the font files
+ * are copied directly in the dist/assets/fonts folder.
+ */
+gulp.task('copy', ['clean'], function() {
+    return gulp.src('favicon.ico', {cwd: 'src'})
+        .pipe(gulp.dest('dist'));
+});
+
+/**
  * The CSS task sets a watcher on all the SCSS files in the assets/style folder
  * and runs the sass task if one of those files has been changed.
  */
@@ -195,7 +205,7 @@ gulp.task('watch', function() {
 /**
  * Build the entire project.
  */
-gulp.task('build', ['clean', 'uglify', 'minify']);
+gulp.task('build', ['clean', 'uglify', 'minify', 'copy']);
 
 /**
  * The default task will run the build task.
