@@ -7,6 +7,7 @@ section#upload {
     padding: 10px;
     overflow: auto;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
     
     div#preview {
         height: 250px;
