@@ -37,7 +37,7 @@ angular.module('app.components')
                             .catch(function(err) {                                
                                 check(source, index+1);
                             });
-                    }, index*300);
+                    }, index*1000);
                 }
             }
         };
