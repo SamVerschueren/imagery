@@ -10,7 +10,7 @@ angular.module('app.controllers')
                     $scope.loading(true);
                 
                     imageModel.loadImages()
-                        .then(function() {
+                        .finally(function() {
                             $scope.loading(false);  
                         });
                 }
@@ -38,7 +38,7 @@ angular.module('app.controllers')
                 $scope.loading(true);
                 
                 imageModel.loadMore()
-                    .then(function() {
+                    .finally(function() {
                         $scope.loading(false);
                     });
             }
