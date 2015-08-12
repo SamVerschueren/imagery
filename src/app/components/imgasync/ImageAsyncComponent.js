@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app.components')
-    .directive('imgAsync', ['$timeout', '$http', function($timeout, $http) {
+    .directive('imgAsync', ['$timeout', function($timeout) {
         return {
             restrict: 'E',
             replace: true,
@@ -11,7 +11,9 @@ angular.module('app.components')
             templateUrl: 'app/components/imgasync/view.html',
             link: function(scope, element, attrs) {
                 var el = angular.element(element),
-                    image = el.find('img')[0];
+                    image = el.find('img')[0],
+                    angularImage = angular.element(image),
+                    index = 0;
     
                 // Listen for when the image is loaded
                 image.onload = function() {
@@ -21,23 +23,19 @@ angular.module('app.components')
                 };
     
                 scope.$watch('ngSrc', function(source) {
-                    check(source);
-                });
-                
-                function check(source, index) {
                     scope.loading = true;
                     
-                    index = index || 0;
-                    
+                    image.src = source;
+                });
+                
+                angularImage.on('error', function() {
+                    check();
+                });
+                
+                function check() {
                     $timeout(function() {
-                        $http.get(source)
-                            .then(function() {
-                                image.src = source;
-                            })
-                            .catch(function(err) {                                
-                                check(source, index+1);
-                            });
-                    }, index*1000);
+                        image.src = scope.ngSrc;
+                    }, (index++)*1000);
                 }
             }
         };
