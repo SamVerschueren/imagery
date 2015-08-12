@@ -40,6 +40,8 @@ angular.module('app.controllers')
                         
                         // Go home
                         $state.go('home');
+                        
+                        $scope.loading(false);
                     })
                     .catch(function(err) {
                         // Something went wrong, handle the error
