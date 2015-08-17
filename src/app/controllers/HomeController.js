@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('app.controllers')
-    .controller('HomeController', ['$scope', '$state', 'fileModel', 'imageModel', function HomeController($scope, $state, fileModel, imageModel) {
+    .controller('HomeController', ['$scope', '$state', '$timeout', 'fileModel', 'imageModel', function HomeController($scope, $state, $timeout, fileModel, imageModel) {
     
         // private
         var _this = {
@@ -14,7 +14,16 @@ angular.module('app.controllers')
                 
                     imageModel.loadImages()
                         .finally(function() {
-                            $scope.loading(false);  
+                            $scope.loading(false);
+                            
+                            $timeout(function() {
+                                var raw = document.getElementById('home');
+                                
+                                if(raw.offsetHeight === raw.scrollHeight) {
+                                    // If we don't have a scrollbar yet, load more
+                                    $scope.loadMore();
+                                }
+                            });
                         });
                 }
             }
