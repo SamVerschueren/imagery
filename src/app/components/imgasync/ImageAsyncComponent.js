@@ -35,7 +35,7 @@ angular.module('app.components')
                 function check() {
                     $timeout(function() {
                         image.src = scope.ngSrc;
-                    }, (index++)*1000);
+                    }, (index++)*200);
                 }
             }
         };
